@@ -10,5 +10,15 @@ namespace MonitorulOficialPDF
     {
         public string URL { get; set; }
         public string Name { get; set; }
+
+        public Link()
+        { 
+        }
+
+        public Link(string url, string name)
+        {
+            URL = url;
+            Name = name;
+        }
     }
 }

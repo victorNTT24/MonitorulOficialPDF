@@ -53,7 +53,7 @@ namespace MonitorulOficialPDF
             }
         }
 
-        public async Task<List<Link>> FindPDFs()
+        public async Task<List<Link>> FindPDFs(string date)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -76,7 +76,7 @@ namespace MonitorulOficialPDF
                 client.DefaultRequestHeaders.Add("x-requested-with", "XMLHttpRequest");
 
                 // Prepare the POST data
-                var content = new StringContent("today=2024-12-04", Encoding.UTF8, "application/x-www-form-urlencoded");
+                var content = new StringContent(@"today=" + date, Encoding.UTF8, "application/x-www-form-urlencoded");
 
                 // Make the POST request
                 HttpResponseMessage response = await client.PostAsync("ramo_customs/emonitor/get_mo.php", content);
